@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://6hs768ukxtuh"]
+[gd_scene load_steps=4 format=3 uid="uid://dfd5caaefrpyf"]
 
 [ext_resource type="Texture2D" uid="uid://d1ml2ffyk1j7u" path="res://Car for Godot.png" id="1_i168w"]
 [ext_resource type="Script" path="res://Car.gd" id="1_vc462"]
