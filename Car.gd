@@ -3,13 +3,13 @@ extends CharacterBody2D
 var wheel_base = 70
 var steering_angle = 15
 
-var velocity = Vector2.ZERO
+var direction = Vector2.ZERO
 var steer_direction
 
 func _physics_process(delta):
 	get_input()
 	calculate_steering(delta)
-	velocity - move_and_slide()
+	direction - move_and_slide()
 	
 func get_input():
 	var turn = 0
@@ -28,4 +28,5 @@ func calculate_steering(delta):
 	rear_wheel += velocity * delta
 	front_wheel += velocity.rotated(steer_direction * delta)
 	var new_heading = (front_wheel - rear_wheel).normalized()
-	velocity = 
+	velocity = new_heading * velocity.length()
+	rotation = new_heading.angle()

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://po2wnro1etmi"]
+
+[ext_resource type="Texture2D" uid="uid://d1ml2ffyk1j7u" path="res://Car for Godot.png" id="1_p5jwk"]
+
+[node name="World" type="Node2D"]
+
+[node name="CarForGodot" type="Sprite2D" parent="."]
+position = Vector2(571, 348)
+scale = Vector2(0.23628, 0.23628)
+texture = ExtResource("1_p5jwk")
