@@ -9,6 +9,7 @@ var steer_direction
 func _physics_process(delta):
 	get_input()
 	calculate_steering(delta)
+	velocity = move_and_slide(velocity)
 	
 func get_input():
 	var turn = 0
