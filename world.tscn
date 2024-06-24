@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://po2wnro1etmi"]
+[gd_scene load_steps=3 format=3 uid="uid://po2wnro1etmi"]
 
-[ext_resource type="Texture2D" uid="uid://d1ml2ffyk1j7u" path="res://Car for Godot.png" id="1_p5jwk"]
+[ext_resource type="PackedScene" uid="uid://dfd5caaefrpyf" path="res://Car.tscn" id="1_nkp32"]
+[ext_resource type="Texture2D" uid="uid://bihr30v0mnunn" path="res://icon.svg" id="2_e866s"]
 
 [node name="World" type="Node2D"]
 
-[node name="CarForGodot" type="Sprite2D" parent="."]
-position = Vector2(571, 348)
-scale = Vector2(0.23628, 0.23628)
-texture = ExtResource("1_p5jwk")
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(662, -275)
+scale = Vector2(19.6016, 8.9375)
+texture = ExtResource("2_e866s")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_nkp32")]
+position = Vector2(607.794, 417.869)
