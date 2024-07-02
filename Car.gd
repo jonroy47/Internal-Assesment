@@ -7,8 +7,10 @@ var steering_angle = 15
 var steer_direction
 
 func _physics_process(delta):
+
 	get_input()
 	calculate_steering(delta)
+
 	move_and_slide()
 	
 func get_input():
@@ -21,7 +23,8 @@ func get_input():
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed('u'):
 		velocity = transform.x * 100
-		
+
+
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base/7.5
 	var front_wheel = position + transform.x * wheel_base/7.5
