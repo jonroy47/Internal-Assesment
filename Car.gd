@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var wheel_base = 70
 var steering_angle = 15
-var engine_power = 800
+var engine_power = 8000
 var friction = -0.9
 var drag = -0.001
 var braking = -450
