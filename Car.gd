@@ -3,15 +3,15 @@ var acceleration = Vector2.ZERO
 var engine_power = 500
 var friction = -0.9
 var drag = -0.001
-var braking = -350
+var braking = -450
 var max_speed_reversed = 250
-var slip_speed = 300
+var slip_speed = 250
 var traction_fast = 0.1
 var traction_slow = 0.8
 # When the Car fets up to speed, i.e. traction_fast, the car will lose traction
 # so it looks like it is drifting or sliding.
 var wheel_base = 70
-var steering_angle = 20
+var steering_angle = 30
 var steer_direction 
 
 func _physics_process(delta):
@@ -36,11 +36,11 @@ func get_input():
 	if Input.is_action_pressed("powerslide"):
 		traction_fast = 0.001
 		traction_slow = 0.1
-		steering_angle = 40
+		steering_angle = 60
 	else:
 		traction_fast = 0.1
 		traction_slow = 0.8
-		steering_angle = 20
+		steering_angle = 30
 # This is Powerslide so you will drift  if you press down 'SHIFT'
 
 func calculate_steering(delta):
