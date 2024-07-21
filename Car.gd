@@ -1,10 +1,10 @@
 extends CharacterBody2D
 var acceleration = Vector2.ZERO
-var engine_power = 500
+var engine_power = 300
 var friction = -0.9
 var drag = -0.001
 var braking = -450
-var max_speed_reversed = 250
+var max_speed_reversed = 100
 var slip_speed = 250
 var traction_fast = 0.1
 var traction_slow = 0.8
@@ -60,8 +60,6 @@ func calculate_steering(delta):
 	rotation = new_heading.angle()
 	
 func apply_friction():
-	if velocity.length() < 5:
-		velocity = Vector2.ZERO
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
