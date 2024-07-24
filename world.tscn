@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://po2wnro1etmi"]
+[gd_scene load_steps=12 format=3 uid="uid://po2wnro1etmi"]
 
 [ext_resource type="PackedScene" uid="uid://dfd5caaefrpyf" path="res://Car.tscn" id="1_nkp32"]
 [ext_resource type="Texture2D" uid="uid://ddd63yfcpoxtp" path="res://Texture/TX Tileset Grass.png" id="1_s4hns"]
 [ext_resource type="Texture2D" uid="uid://b0bja5htf02wh" path="res://Texture/TX Plant.png" id="4_hc6on"]
+[ext_resource type="PackedScene" uid="uid://cioxwy0c845d4" path="res://enemy.tscn" id="5_3y1hi"]
+[ext_resource type="PackedScene" uid="uid://c11m8beo486hx" path="res://other_loot_box.tscn" id="5_6w8m2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yhied"]
 texture = ExtResource("1_s4hns")
@@ -1909,3 +1911,18 @@ layer_0/tile_data = PackedInt32Array(196665, 655360, 10, 131129, 196608, 10, 655
 tile_set = SubResource("TileSet_3e5sh")
 format = 2
 layer_0/tile_data = PackedInt32Array(2031642, 458752, 13, 1966106, 458752, 12, 2031641, 393216, 13, 1966105, 393216, 12, 1769502, 458752, 13, 1703966, 458752, 12, 1769501, 393216, 13, 1703965, 393216, 12, 1703955, 458752, 13, 1638419, 458752, 12, 1703954, 393216, 13, 1638418, 393216, 12, 1703982, 458752, 13, 1638446, 458752, 12, 1703981, 393216, 13, 1638445, 393216, 12, 1703993, 458752, 13, 1638457, 458752, 12, 1703992, 393216, 13, 1638456, 393216, 12, 2162742, 458752, 13, 2097206, 458752, 12, 2162741, 393216, 13, 2097205, 393216, 12, 262181, 458752, 13, 196645, 458752, 12, 262180, 393216, 13, 196644, 393216, 12, 458804, 458752, 13, 393268, 458752, 12, 458803, 393216, 13, 393267, 393216, 12, 196635, 458752, 13, 131099, 458752, 12, 196634, 393216, 13, 131098, 393216, 12, 524313, 458752, 13, 458777, 458752, 12, 524312, 393216, 13, 458776, 393216, 12, 262189, 458752, 13, 196653, 458752, 12, 262188, 393216, 13, 196652, 393216, 12, 458769, 851968, 11, 524333, 851968, 11, -65516, 851968, 11, -131024, 851968, 11, 1703986, 851968, 11, 1572890, 851968, 11, 2162707, 851968, 11, 2162736, 851968, 11)
+
+[node name="Other_LootBox" parent="." instance=ExtResource("5_6w8m2")]
+position = Vector2(502, 277)
+
+[node name="Other_LootBox3" parent="." instance=ExtResource("5_6w8m2")]
+position = Vector2(230, 277)
+
+[node name="Other_LootBox4" parent="." instance=ExtResource("5_6w8m2")]
+position = Vector2(599, 118)
+
+[node name="Other_LootBox2" parent="." instance=ExtResource("5_6w8m2")]
+position = Vector2(456, 260)
+
+[node name="enemy" parent="." instance=ExtResource("5_3y1hi")]
+position = Vector2(571, 170)

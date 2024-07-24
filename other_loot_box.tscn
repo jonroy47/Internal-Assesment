@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://c11m8beo486hx"]
+
+[ext_resource type="Texture2D" uid="uid://xqnwewpgct3w" path="res://Texture/TX Props.png" id="1_1rpch"]
+[ext_resource type="Script" path="res://other_loot_box.gd" id="1_nh04w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4slw5"]
+atlas = ExtResource("1_1rpch")
+region = Rect2(73, 0, 73, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r15h"]
+atlas = ExtResource("1_1rpch")
+region = Rect2(73, 64, 73, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gb66p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4slw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r15h")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plnxw"]
+radius = 11.0
+
+[node name="Other_LootBox" type="Area2D"]
+script = ExtResource("1_nh04w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -6)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gb66p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_plnxw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

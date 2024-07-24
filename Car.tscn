@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfd5caaefrpyf"]
+[gd_scene load_steps=5 format=3 uid="uid://dfd5caaefrpyf"]
 
 [ext_resource type="Texture2D" uid="uid://d1ml2ffyk1j7u" path="res://Car for Godot.png" id="1_i168w"]
 [ext_resource type="Script" path="res://car.gd" id="1_uet5k"]
@@ -7,7 +7,11 @@
 radius = 9.0
 height = 28.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_sqxkx"]
+radius = 15.0
+
+[node name="Car" type="CharacterBody2D" groups=["Car"]]
+collision_layer = 3
 script = ExtResource("1_uet5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,3 +28,8 @@ position_smoothing_speed = 8.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_xvplw")
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+shape = SubResource("CircleShape2D_sqxkx")
