@@ -14,6 +14,11 @@ var wheel_base = 70
 var steering_angle = 40
 var steer_direction 
 
+var enemy_inattack_range = false
+var enemy_attack_cooldown = true
+var health = 100
+var player_alive = true
+
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
@@ -21,6 +26,13 @@ func _physics_process(delta):
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	move_and_slide()
+	enemy_attack()
+	
+	if health <= 0:
+		player_alive = false #This is where you would add the end screen...
+		health = 0
+		print(health, "Player has been killed")
+		self.queue_free()
 
 func get_input():
 	var turn = 0
@@ -59,9 +71,40 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reversed)
 	rotation = new_heading.angle()
 	
+
+func player():
+	pass
+	
+
+
+
 func apply_friction():
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
 	
 
+
+
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("enemy"):
+		enemy_inattack_range = true
+
+
+
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("enemy"):
+		enemy_inattack_range = false
+
+
+func enemy_attack():
+	if enemy_inattack_range and enemy_attack_cooldown == true:
+		health = health - 20
+		enemy_attack_cooldown = false
+		$attack_cooldown.start()
+		print(health)
+
+
+
+func _on_attack_cooldown_timeout():
+	enemy_attack_cooldown = true

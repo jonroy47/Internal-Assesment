@@ -33,3 +33,10 @@ shape = SubResource("CapsuleShape2D_xvplw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
 shape = SubResource("CircleShape2D_sqxkx")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
