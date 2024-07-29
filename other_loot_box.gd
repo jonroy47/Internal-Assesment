@@ -11,5 +11,5 @@ func collected():
 func _on_body_entered(body):
 	if body.is_in_group("Car"):
 		collected()
-		queue_free()
+		call_deferred('free')
 

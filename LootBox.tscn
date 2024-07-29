@@ -1,45 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvx5r3r7rrut0"]
-
-[ext_resource type="Texture2D" uid="uid://xqnwewpgct3w" path="res://Texture/TX Props.png" id="1_f605d"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a1jw3"]
-atlas = ExtResource("1_f605d")
-region = Rect2(73, 0, 73, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_js4my"]
-atlas = ExtResource("1_f605d")
-region = Rect2(73, 64, 73, 64)
+[gd_scene load_steps=2 format=3 uid="uid://bvx5r3r7rrut0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bk6ek"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a1jw3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_js4my")
-}],
+"frames": [],
 "loop": false,
 "name": &"default",
 "speed": 8.0
