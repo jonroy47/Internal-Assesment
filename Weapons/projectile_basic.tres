@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Fireable" load_steps=5 format=3 uid="uid://udx3on1tufkk"]
+
+[ext_resource type="Texture2D" uid="uid://btf8wseal4khd" path="res://Bullet.png" id="1_2tpfq"]
+[ext_resource type="PackedScene" uid="uid://27lmaek3y62q" path="res://Weapons/Projectiles/basic_projectile.tscn" id="2_1bmp5"]
+[ext_resource type="Script" path="res://Weapons/Projectiles/new_script.gd" id="2_nnia7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ysp"]
+atlas = ExtResource("1_2tpfq")
+
+[resource]
+script = ExtResource("2_nnia7")
+display_name = &"Basic"
+icon = SubResource("AtlasTexture_r6ysp")
+scene = ExtResource("2_1bmp5")

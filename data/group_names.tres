@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GroupNames" load_steps=2 format=3 uid="uid://bbxfwegxaakqq"]
+
+[ext_resource type="Script" path="res://data/group_names.gd" id="1_51uuf"]
+
+[resource]
+script = ExtResource("1_51uuf")
+projectiles_parent_group = "projectiles_parent"

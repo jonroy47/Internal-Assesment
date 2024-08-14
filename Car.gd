@@ -14,6 +14,13 @@ var wheel_base = 70
 var steering_angle = 40
 var steer_direction 
 
+@export var projectile: PackedScene
+@onready var spawn_point: Marker2D = $Marker2D
+
+@export var shooter : Shooter
+
+var attack_ip = false
+
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
@@ -27,6 +34,8 @@ func _physics_process(delta):
 	velocity += acceleration * delta
 	move_and_slide()
 	enemy_attack()
+	if Input.is_action_pressed("attack"):
+		shooter._shoot()
 	
 	if health <= 0:
 		player_alive = false #This is where you would add the end screen...
@@ -54,6 +63,9 @@ func get_input():
 		traction_slow = 0.8
 		steering_angle = 40
 # This is Powerslide so you will drift  if you press down 'SHIFT'
+
+	
+
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base/2.0
@@ -108,3 +120,5 @@ func enemy_attack():
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
+	
+
