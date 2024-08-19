@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfd5caaefrpyf"]
+[gd_scene load_steps=9 format=3 uid="uid://dfd5caaefrpyf"]
 
 [ext_resource type="Texture2D" uid="uid://d1ml2ffyk1j7u" path="res://Car for Godot.png" id="1_i168w"]
 [ext_resource type="Script" path="res://car.gd" id="1_uet5k"]
+[ext_resource type="Script" path="res://hand_anchor.gd" id="3_lynay"]
 [ext_resource type="Script" path="res://Shooter.gd" id="3_rpbdu"]
 [ext_resource type="Resource" uid="uid://udx3on1tufkk" path="res://Weapons/projectile_basic.tres" id="4_hcpf0"]
 [ext_resource type="Resource" uid="uid://bbxfwegxaakqq" path="res://data/group_names.tres" id="5_ckj35"]
@@ -16,7 +17,7 @@ radius = 15.0
 [node name="Car" type="CharacterBody2D" node_paths=PackedStringArray("shooter") groups=["Car"]]
 collision_layer = 3
 script = ExtResource("1_uet5k")
-shooter = NodePath("Shooter")
+shooter = NodePath("HandAnchor/Shooter")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -40,7 +41,10 @@ shape = SubResource("CircleShape2D_sqxkx")
 
 [node name="attack_cooldown" type="Timer" parent="."]
 
-[node name="Shooter" type="Node2D" parent="."]
+[node name="HandAnchor" type="Node2D" parent="."]
+script = ExtResource("3_lynay")
+
+[node name="Shooter" type="Node2D" parent="HandAnchor"]
 script = ExtResource("3_rpbdu")
 fireable = ExtResource("4_hcpf0")
 group_names = ExtResource("5_ckj35")

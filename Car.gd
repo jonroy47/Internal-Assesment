@@ -121,4 +121,3 @@ func enemy_attack():
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 	
-
