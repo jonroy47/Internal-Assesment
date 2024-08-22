@@ -21,11 +21,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_av7jr"]
 radius = 1.41421
 
-[node name="BasicProjectile" type="RigidBody2D"]
+[node name="BasicProjectile" type="Area2D"]
+z_index = 2
 collision_layer = 0
 collision_mask = 32
-mass = 0.001
-gravity_scale = 0.0
 script = ExtResource("1_5koa8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

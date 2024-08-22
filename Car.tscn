@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfd5caaefrpyf"]
 
-[ext_resource type="Texture2D" uid="uid://d1ml2ffyk1j7u" path="res://Car for Godot.png" id="1_i168w"]
 [ext_resource type="Script" path="res://car.gd" id="1_uet5k"]
+[ext_resource type="Texture2D" uid="uid://drkkv2jx2qb88" path="res://Car Sprite.png" id="2_xmry5"]
 [ext_resource type="Script" path="res://hand_anchor.gd" id="3_lynay"]
 [ext_resource type="Script" path="res://Shooter.gd" id="3_rpbdu"]
 [ext_resource type="Resource" uid="uid://udx3on1tufkk" path="res://Weapons/projectile_basic.tres" id="4_hcpf0"]
@@ -22,13 +22,7 @@ shooter = NodePath("HandAnchor/Shooter")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.0273953, 0.0273953)
-texture = ExtResource("1_i168w")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-rotation = -1.5708
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
+texture = ExtResource("2_xmry5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
@@ -49,6 +43,11 @@ script = ExtResource("3_rpbdu")
 fireable = ExtResource("4_hcpf0")
 group_names = ExtResource("5_ckj35")
 
+[node name="Projectile_Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="Projectile_Timer" to="." method="_on_projectile_timer_timeout"]

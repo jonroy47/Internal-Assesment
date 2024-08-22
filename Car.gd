@@ -1,4 +1,6 @@
 extends CharacterBody2D
+
+var is_ready: bool = true
 var acceleration = Vector2.ZERO
 var engine_power = 300
 var friction = -0.9
@@ -16,9 +18,9 @@ var steer_direction
 
 @export var projectile: PackedScene
 @onready var spawn_point: Marker2D = $Marker2D
-
+const BASIC_PROJECTILE = preload("res://Weapons/Projectiles/basic_projectile.tscn")
 @export var shooter : Shooter
-
+@onready var Shoot_Timer =  $Projectile_Timer
 var attack_ip = false
 
 var enemy_inattack_range = false
@@ -34,7 +36,10 @@ func _physics_process(delta):
 	velocity += acceleration * delta
 	move_and_slide()
 	enemy_attack()
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_pressed("attack") and is_ready:
+		Shoot_Timer = false
+		is_ready = false
+		$Projectile_Timer.start()
 		shooter._shoot()
 	
 	if health <= 0:
@@ -121,3 +126,7 @@ func enemy_attack():
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 	
+
+
+func _on_projectile_timer_timeout() -> void:
+	is_ready = true
