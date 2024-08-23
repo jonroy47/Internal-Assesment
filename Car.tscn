@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfd5caaefrpyf"]
+[gd_scene load_steps=10 format=3 uid="uid://dfd5caaefrpyf"]
 
 [ext_resource type="Script" path="res://car.gd" id="1_uet5k"]
-[ext_resource type="Texture2D" uid="uid://drkkv2jx2qb88" path="res://Car Sprite.png" id="2_xmry5"]
+[ext_resource type="Texture2D" uid="uid://d1ml2ffyk1j7u" path="res://Car for Godot.png" id="2_0v5sq"]
 [ext_resource type="Script" path="res://hand_anchor.gd" id="3_lynay"]
 [ext_resource type="Script" path="res://Shooter.gd" id="3_rpbdu"]
 [ext_resource type="Resource" uid="uid://udx3on1tufkk" path="res://Weapons/projectile_basic.tres" id="4_hcpf0"]
 [ext_resource type="Resource" uid="uid://bbxfwegxaakqq" path="res://data/group_names.tres" id="5_ckj35"]
+[ext_resource type="PackedScene" uid="uid://bvr5uekmyif4v" path="res://Turret.tscn" id="7_7yjuw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvplw"]
 radius = 9.0
@@ -22,7 +23,7 @@ shooter = NodePath("HandAnchor/Shooter")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.0273953, 0.0273953)
-texture = ExtResource("2_xmry5")
+texture = ExtResource("2_0v5sq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
@@ -46,6 +47,8 @@ group_names = ExtResource("5_ckj35")
 [node name="Projectile_Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_7yjuw")]
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
