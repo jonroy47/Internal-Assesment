@@ -62,7 +62,7 @@ func get_input():
 	if Input.is_action_pressed("powerslide"):
 		traction_fast = 0.001
 		traction_slow = 0.1
-		steering_angle = 70
+		steering_angle = 90
 	else:
 		traction_fast = 0.1
 		traction_slow = 0.8

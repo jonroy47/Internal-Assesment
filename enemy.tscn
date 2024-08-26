@@ -127,7 +127,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5thc"]
-radius = 85.3756
+radius = 3480.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ou6t"]
 radius = 8.06226
@@ -135,7 +135,7 @@ radius = 8.06226
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnby5"]
 radius = 9.05539
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_pill8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -153,12 +153,14 @@ shape = SubResource("CircleShape2D_w5thc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6ou6t")
 
-[node name="enemy_hitbox" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_gnby5")
+
+[node name="DamageTimer" type="Timer" parent="HurtBox"]
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
-[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
-[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="HurtBox" to="." method="_on_enemy_hitbox_body_exited"]

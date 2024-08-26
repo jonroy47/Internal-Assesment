@@ -3,12 +3,12 @@ extends CharacterBody2D
 var health = 100
 var player_inattack_zone = false
 
-var speed = 75
+var speed = 200
 var player_chase = false
 var player = null
 
-func _physics_process(_delta):
-	deal_with_damage()
+func _physics_process(delta):
+
 	if player_chase:
 		position += (player.position - position)/speed
 
@@ -20,8 +20,8 @@ func _physics_process(_delta):
 			$AnimatedSprite2D.flip_h = false
 	else:
 		$AnimatedSprite2D.play("idle")
-
-
+	
+	
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
@@ -52,3 +52,7 @@ func deal_with_damage():
 		print("Slime health = ", health)
 		if health <= 0:
 			self.queue_free()
+	move_and_slide()
+
+func enemy_died():
+	queue_free()

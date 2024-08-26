@@ -11,4 +11,8 @@ func launch(p_move_direction : Vector2):
 func _process(delta):
 	position += transform.x * speed * delta
 
-	#linear_velocity = initial_velocity
+
+
+func _on_body_entered(body):
+	if body.is_in_group("Enemy"):
+		body.enemy_died()
