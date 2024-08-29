@@ -15,4 +15,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Enemy"):
-		body.enemy_died()
+		body.take_damage(ProjectileBullet.bullet_damage)
+		queue_free()

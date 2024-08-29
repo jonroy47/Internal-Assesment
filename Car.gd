@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const TEST_POSITION = preload("res://test_position.tscn")
+
 var is_ready: bool = true
 var acceleration = Vector2.ZERO
 var engine_power = 300
@@ -130,3 +132,15 @@ func _on_attack_cooldown_timeout():
 
 func _on_projectile_timer_timeout() -> void:
 	is_ready = true
+
+func test():
+	position = Vector2(0, 9)
+	
+
+
+func _on_pickup_zone_area_entered(area):
+	if area.is_in_group("Pickup"):
+		if area.has_method("collect"):
+			area.collect()
+			
+			

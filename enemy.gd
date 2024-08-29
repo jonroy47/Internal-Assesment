@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-var health = 100
 var player_inattack_zone = false
-
+const EXPERIENCE_GEM = preload("res://experience_gem.tscn")
 var speed = 200
 var player_chase = false
 var player = null
+
+@export var health = 10
 
 func _physics_process(delta):
 
@@ -54,5 +55,10 @@ func deal_with_damage():
 			self.queue_free()
 	move_and_slide()
 
-func enemy_died():
-	queue_free()
+func take_damage(dmg):
+	health -= dmg
+	if health <0:
+		queue_free()
+		var new_gem = EXPERIENCE_GEM.instantiate()
+		new_gem.global_position = global_position
+		add_sibling(new_gem)

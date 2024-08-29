@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://po2wnro1etmi"]
+[gd_scene load_steps=13 format=3 uid="uid://po2wnro1etmi"]
 
 [ext_resource type="PackedScene" uid="uid://dfd5caaefrpyf" path="res://Car.tscn" id="1_nkp32"]
 [ext_resource type="Texture2D" uid="uid://ddd63yfcpoxtp" path="res://Texture/TX Tileset Grass.png" id="1_s4hns"]
 [ext_resource type="Texture2D" uid="uid://b0bja5htf02wh" path="res://Texture/TX Plant.png" id="4_hc6on"]
 [ext_resource type="PackedScene" uid="uid://c11m8beo486hx" path="res://other_loot_box.tscn" id="5_6w8m2"]
+[ext_resource type="PackedScene" uid="uid://lbc5jwbcl6vd" path="res://test_position.tscn" id="6_bo1kh"]
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="6_wfeec"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yhied"]
@@ -2044,5 +2045,8 @@ position = Vector2(-181.999, -302.001)
 [node name="SpawnTimer" type="Timer" parent="Camera2D/EnemySpawner"]
 wait_time = 0.5
 autostart = true
+
+[node name="Area2D" parent="." instance=ExtResource("6_bo1kh")]
+position = Vector2(609, 195)
 
 [connection signal="timeout" from="Camera2D/EnemySpawner/SpawnTimer" to="Camera2D/EnemySpawner" method="_on_spawn_timer_timeout"]

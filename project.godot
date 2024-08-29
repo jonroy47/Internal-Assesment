@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 global="*res://global.gd"
+PlayerStats="*res://Singletons/player_stats.gd"
+ProjectileBullet="*res://Singletons/projectile_bullet.gd"
 
 [input]
 
@@ -61,4 +63,5 @@ attack={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
