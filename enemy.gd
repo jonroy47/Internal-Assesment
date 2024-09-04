@@ -5,11 +5,13 @@ const EXPERIENCE_GEM = preload("res://experience_gem.tscn")
 var speed = 200
 var player_chase = false
 var player = null
+@onready var damage_timer: Timer = $HurtBox/DamageTimer
 
 @export var health = 10
+@export var damage = randf_range(10, 60)
 
 func _physics_process(delta):
-
+	check_collisions()
 	if player_chase:
 		position += (player.position - position)/speed
 
@@ -34,9 +36,6 @@ func _on_detection_area_body_exited(_body):
 	player_chase = false
 	
 
-func enemy():
-	pass
-
 
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("car"):
@@ -48,11 +47,7 @@ func _on_enemy_hitbox_body_exited(body):
 		player_inattack_zone = false
 		
 func deal_with_damage():
-	if player_inattack_zone and global.player_current_attack == true:
-		health = health - 20
-		print("Slime health = ", health)
-		if health <= 0:
-			self.queue_free()
+	pass
 	move_and_slide()
 
 func take_damage(dmg):
@@ -62,3 +57,13 @@ func take_damage(dmg):
 		var new_gem = EXPERIENCE_GEM.instantiate()
 		new_gem.global_position = global_position
 		add_sibling(new_gem)
+
+func check_collisions():
+	if not damage_timer.is_stopped():
+		return
+	var collisions = $HurtBox.get_overlapping_bodies()
+	if collisions:
+		for collision in collisions:
+			if collision.is_in_group("Car") and damage_timer.is_stopped():
+				PlayerStats.damage_player(damage)
+				damage_timer.start()

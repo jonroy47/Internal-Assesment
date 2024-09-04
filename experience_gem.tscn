@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://experience_gem.gd" id="1_iaf38"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvnna"]
+radius = 3.0
 
 [node name="ExperienceGem" type="Area2D" groups=["Pickup"]]
 script = ExtResource("1_iaf38")
@@ -12,8 +13,8 @@ script = ExtResource("1_iaf38")
 shape = SubResource("CircleShape2D_rvnna")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.38419e-07, -2.38419e-07)
-scale = Vector2(0.0294859, 0.0294859)
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.00686744, 0.00686744)
 texture = ExtResource("1_cnidr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

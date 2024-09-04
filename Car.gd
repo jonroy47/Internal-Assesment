@@ -44,11 +44,7 @@ func _physics_process(delta):
 		$Projectile_Timer.start()
 		shooter._shoot()
 	
-	if health <= 0:
-		player_alive = false #This is where you would add the end screen...
-		health = 0
-		print(health, "Player has been killed")
-		self.queue_free()
+	
 
 func get_input():
 	var turn = 0
@@ -64,7 +60,7 @@ func get_input():
 	if Input.is_action_pressed("powerslide"):
 		traction_fast = 0.001
 		traction_slow = 0.1
-		steering_angle = 90
+		steering_angle = 80
 	else:
 		traction_fast = 0.1
 		traction_slow = 0.8
@@ -118,10 +114,20 @@ func _on_player_hitbox_body_exited(body):
 
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
+
+	if PlayerStats.player_health <=0:
+	
+		get_tree().change_scene_to_file("res://death_screen.tscn")
+		PlayerStats.player_health = 100
+		PlayerStats.player_level = 1
+		PlayerStats.player_experience = 0
+		PlayerStats.player_health = 100
+		PlayerStats.player_max_health = 100
+		PlayerStats.next_level = 15
 
 
 
