@@ -13,7 +13,7 @@ func _process(delta):
 			
 func collect():
 	collected = true
-	PlayerStats.add_experience(experience_value)
+	
 
 
 func _on_body_entered(body):
