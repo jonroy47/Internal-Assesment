@@ -2043,7 +2043,7 @@ position = Vector2(-228.999, -302.001)
 position = Vector2(-181.999, -302.001)
 
 [node name="SpawnTimer" type="Timer" parent="Camera2D/EnemySpawner"]
-wait_time = 0.5
+wait_time = 2.0
 autostart = true
 
 [node name="Area2D" parent="." instance=ExtResource("6_bo1kh")]

@@ -54,13 +54,17 @@ func get_input():
 	var turn = 0
 	if Input.is_action_pressed("right"):
 		turn += 1
+	# This turns the car right
 	if Input.is_action_pressed("left"):
 		turn -= 1
+	# This turns the car left
 	steer_direction = turn * deg_to_rad(steering_angle)
 	if Input.is_action_pressed("forward"):
 		acceleration = transform.x * engine_power
+	# This proppels the car forward
 	if Input.is_action_pressed("backward"):
 		acceleration = transform.x * braking
+	# This makes the car go backwards
 	if Input.is_action_pressed("powerslide"):
 		traction_fast = 0.001
 		traction_slow = 0.1

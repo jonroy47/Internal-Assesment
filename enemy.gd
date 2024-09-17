@@ -22,6 +22,7 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.play("idle")
 	
+	check_collisions()
 	
 func _on_detection_area_body_entered(body):
 	player = body
@@ -62,3 +63,13 @@ func take_damage(dmg):
 		var new_gem = EXPERIENCE_GEM.instantiate()
 		new_gem.global_position = global_position
 		add_sibling(new_gem)
+		
+func check_collisions():
+	if not $HurtBox/DamageTimer.is_stopped():
+		return
+	var collisions = $HurtBox.get_overlapping_bodies()
+	if collisions:
+		for collision in collisions:
+			if collision.is_in_group("Car") and $HurtBox/DamageTimer.is_stopped():
+
+				$HurtBox/DamageTimer.start()
