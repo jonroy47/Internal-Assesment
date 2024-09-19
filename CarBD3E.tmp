@@ -21,11 +21,11 @@ radius = 46.0
 [sub_resource type="GDScript" id="GDScript_33wym"]
 script/source = "extends CanvasLayer
 
+@onready var experience: ProgressBar = $Control/Experience
 @onready var health_value: ProgressBar = $Control/Health_5
 
-func _process(delta):
-	print(global.health)
-	health_value.value = global.health
+func _ready():
+	health_value.value = health
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxv2l"]

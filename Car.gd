@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const TEST_POSITION = preload("res://test_position.tscn")
 
+#var health = global.health
 var is_ready: bool = true
 var acceleration = Vector2.ZERO
 var engine_power = 300
@@ -27,7 +28,7 @@ var attack_ip = false
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 100
+
 var player_alive = true
 
 func _physics_process(delta):
@@ -44,11 +45,12 @@ func _physics_process(delta):
 		$Projectile_Timer.start()
 		shooter._shoot()
 	
-	if health <= 0:
+	if global.health <= 0:
 		player_alive = false #This is where you would add the end screen...
-		health = 0
-		print(health, "Player has been killed")
+		global.health = 0
+		print(global.health, "Player has been killed")
 		self.queue_free()
+		get_tree().change_scene_to_file("res://death_screen.tscn")
 
 func get_input():
 	var turn = 0
@@ -122,10 +124,10 @@ func _on_player_hitbox_body_exited(body):
 
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+		global.health -= 20
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(health)
+		print(global.health)
 
 
 
