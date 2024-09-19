@@ -10,7 +10,7 @@ func _process(delta):
 	if collected:
 		if player:
 			global_position = global_position.move_toward(player.global_position, 300 * delta)
-			
+
 func collect():
 	collected = true
 	

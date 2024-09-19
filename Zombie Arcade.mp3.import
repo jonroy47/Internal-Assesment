@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hkb1swfjc1nr"
+path="res://.godot/imported/Zombie Arcade.mp3-d95c71218697e2dc8ec2ae279ddba643.mp3str"
+
+[deps]
+
+source_file="res://Zombie Arcade.mp3"
+dest_files=["res://.godot/imported/Zombie Arcade.mp3-d95c71218697e2dc8ec2ae279ddba643.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

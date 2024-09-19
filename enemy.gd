@@ -63,6 +63,7 @@ func take_damage(dmg):
 		var new_gem = EXPERIENCE_GEM.instantiate()
 		new_gem.global_position = global_position
 		add_sibling(new_gem)
+		global.points +=1
 		
 func check_collisions():
 	if not $HurtBox/DamageTimer.is_stopped():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://po2wnro1etmi"]
+[gd_scene load_steps=14 format=3 uid="uid://po2wnro1etmi"]
 
 [ext_resource type="PackedScene" uid="uid://dfd5caaefrpyf" path="res://Car.tscn" id="1_nkp32"]
 [ext_resource type="Texture2D" uid="uid://ddd63yfcpoxtp" path="res://Texture/TX Tileset Grass.png" id="1_s4hns"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c11m8beo486hx" path="res://other_loot_box.tscn" id="5_6w8m2"]
 [ext_resource type="PackedScene" uid="uid://lbc5jwbcl6vd" path="res://test_position.tscn" id="6_bo1kh"]
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="6_wfeec"]
+[ext_resource type="AudioStream" uid="uid://cg7nwbebyiahc" path="res://Endless Night (1).mp3" id="7_irkxk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yhied"]
 texture = ExtResource("1_s4hns")
@@ -2048,5 +2049,11 @@ autostart = true
 
 [node name="Area2D" parent="." instance=ExtResource("6_bo1kh")]
 position = Vector2(609, 195)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_irkxk")
+volume_db = 1.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="Camera2D/EnemySpawner/SpawnTimer" to="Camera2D/EnemySpawner" method="_on_spawn_timer_timeout"]

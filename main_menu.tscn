@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd8u0m2koxbs8"]
+[gd_scene load_steps=3 format=3 uid="uid://bd8u0m2koxbs8"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_uvdsr"]
+[ext_resource type="AudioStream" uid="uid://hkb1swfjc1nr" path="res://Zombie Arcade.mp3" id="2_0bky8"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -26,5 +27,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Press to Play"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0bky8")
+volume_db = 1.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
