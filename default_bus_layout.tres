@@ -1,0 +1,59 @@
+[gd_resource type="AudioBusLayout" load_steps=12 format=3 uid="uid://dq4n4xfyioufo"]
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_0j445"]
+resource_name = "Amplify"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_xt3oj"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_dwf06"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_uybr5"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_1qpxk"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_x77ik"]
+resource_name = "SpectrumAnalyzer"
+
+[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_yo1ib"]
+resource_name = "StereoEnhance"
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_r3ah5"]
+resource_name = "SpectrumAnalyzer"
+
+[sub_resource type="AudioEffectLowShelfFilter" id="AudioEffectLowShelfFilter_3lnbc"]
+resource_name = "LowShelfFilter"
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_hhucs"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_d4a4y"]
+resource_name = "Chorus"
+
+[resource]
+bus/0/volume_db = 1.06049
+bus/0/effect/0/effect = SubResource("AudioEffectAmplify_0j445")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectReverb_xt3oj")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectReverb_uybr5")
+bus/0/effect/2/enabled = false
+bus/0/effect/3/effect = SubResource("AudioEffectReverb_1qpxk")
+bus/0/effect/3/enabled = false
+bus/0/effect/4/effect = SubResource("AudioEffectSpectrumAnalyzer_x77ik")
+bus/0/effect/4/enabled = false
+bus/0/effect/5/effect = SubResource("AudioEffectStereoEnhance_yo1ib")
+bus/0/effect/5/enabled = false
+bus/0/effect/6/effect = SubResource("AudioEffectSpectrumAnalyzer_r3ah5")
+bus/0/effect/6/enabled = false
+bus/0/effect/7/effect = SubResource("AudioEffectLowShelfFilter_3lnbc")
+bus/0/effect/7/enabled = false
+bus/0/effect/8/effect = SubResource("AudioEffectLowPassFilter_hhucs")
+bus/0/effect/8/enabled = false
+bus/0/effect/9/effect = SubResource("AudioEffectChorus_d4a4y")
+bus/0/effect/9/enabled = false
+bus/0/effect/10/effect = SubResource("AudioEffectReverb_dwf06")
+bus/0/effect/10/enabled = false

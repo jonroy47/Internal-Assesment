@@ -1,7 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd8u0m2koxbs8"]
+[gd_scene load_steps=23 format=3 uid="uid://bd8u0m2koxbs8"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_uvdsr"]
 [ext_resource type="AudioStream" uid="uid://hkb1swfjc1nr" path="res://Zombie Arcade.mp3" id="2_0bky8"]
+[ext_resource type="Texture2D" uid="uid://d1kuejmr6oq7e" path="res://New Piskel (1).png" id="3_5srqh"]
+[ext_resource type="Texture2D" uid="uid://bihr30v0mnunn" path="res://icon.svg" id="4_cuk18"]
+[ext_resource type="Texture2D" uid="uid://glgjf18vdeim" path="res://EXP ORB.png" id="5_5i7c5"]
+[ext_resource type="Texture2D" uid="uid://cfr7pi54ft5cb" path="res://slime.png" id="6_qq1ql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrt4p"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(0, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4gia"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(32, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t2ve"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(64, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq52s"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(96, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w0p7"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(128, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghpq7"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72wcl"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl3df"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oaig"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buj8q"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrjsp"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efay0"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5p7i"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ena3u"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ycy"]
+atlas = ExtResource("6_qq1ql")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rs8cn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrt4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4gia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t2ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq52s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w0p7")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghpq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72wcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl3df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oaig")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buj8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrjsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efay0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5p7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ena3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2ycy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -33,5 +160,72 @@ stream = ExtResource("2_0bky8")
 volume_db = 1.0
 autoplay = true
 parameters/looping = true
+
+[node name="NewPiskel(1)" type="Sprite2D" parent="."]
+position = Vector2(925, 325)
+scale = Vector2(0.157012, 0.157012)
+texture = ExtResource("3_5srqh")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(905, 260)
+rotation = 3.14159
+scale = Vector2(0.0507817, 0.0507817)
+texture = ExtResource("4_cuk18")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(955, 260)
+rotation = 3.14159
+scale = Vector2(0.0507817, 0.0507817)
+texture = ExtResource("4_cuk18")
+
+[node name="ExpOrb" type="Sprite2D" parent="."]
+position = Vector2(836, 175)
+scale = Vector2(0.0483871, 0.0483871)
+texture = ExtResource("5_5i7c5")
+
+[node name="ExpOrb2" type="Sprite2D" parent="."]
+position = Vector2(928, 136)
+scale = Vector2(0.0483871, 0.0483871)
+texture = ExtResource("5_5i7c5")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(496.5, 222.493)
+scale = Vector2(5.34375, 4.11594)
+sprite_frames = SubResource("SpriteFrames_rs8cn")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -3)
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(328, 115)
+scale = Vector2(5.34375, 4.11594)
+sprite_frames = SubResource("SpriteFrames_rs8cn")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -3)
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(214, 259)
+scale = Vector2(5.34375, 4.11594)
+sprite_frames = SubResource("SpriteFrames_rs8cn")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -3)
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(321, 417)
+scale = Vector2(5.34375, 4.11594)
+sprite_frames = SubResource("SpriteFrames_rs8cn")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -3)
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(727, 128)
+scale = Vector2(5.34375, 4.11594)
+sprite_frames = SubResource("SpriteFrames_rs8cn")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -3)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const TEST_POSITION = preload("res://test_position.tscn")
 
-#var health = global.health
 var is_ready: bool = true
 var acceleration = Vector2.ZERO
 var engine_power = 300
@@ -19,6 +18,8 @@ var wheel_base = 70
 var steering_angle = 40
 var steer_direction 
 
+#These are all the variables I have in my game that are to do with the car
+
 @export var projectile: PackedScene
 @onready var spawn_point: Marker2D = $Marker2D
 const BASIC_PROJECTILE = preload("res://Weapons/Projectiles/basic_projectile.tscn")
@@ -28,7 +29,6 @@ var attack_ip = false
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-
 var player_alive = true
 
 func _physics_process(delta):
@@ -44,6 +44,9 @@ func _physics_process(delta):
 		is_ready = false
 		$Projectile_Timer.start()
 		shooter._shoot()
+	# This is how when the player presses the attack button, (Left Click)
+	# a bullet will be spawned. This is using the _shoot function which is
+	# another cuntion linked somewhere else.
 	
 	if global.health <= 0:
 		player_alive = false #This is where you would add the end screen...
@@ -51,7 +54,9 @@ func _physics_process(delta):
 		print(global.health, "Player has been killed")
 		self.queue_free()
 		get_tree().change_scene_to_file("res://death_screen.tscn")
-
+		# This is that when the player hits below 0 health, the player will
+		# be sent to another scene which will say 'Respawn.'
+		
 func get_input():
 	var turn = 0
 	if Input.is_action_pressed("right"):

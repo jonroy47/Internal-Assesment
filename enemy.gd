@@ -55,6 +55,8 @@ func deal_with_damage():
 		if health <= 0:
 			self.queue_free()
 	move_and_slide()
+	# This move_and_slide() is the basically the main thing that makes this enemy move
+	
 
 func take_damage(dmg):
 	health -= dmg
