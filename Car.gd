@@ -47,6 +47,7 @@ func _physics_process(delta):
 	# This is how when the player presses the attack button, (Left Click)
 	# a bullet will be spawned. This is using the _shoot function which is
 	# another cuntion linked somewhere else.
+
 	
 	if global.health <= 0:
 		player_alive = false #This is where you would add the end screen...
@@ -57,6 +58,8 @@ func _physics_process(delta):
 		# This is that when the player hits below 0 health, the player will
 		# be sent to another scene which will say 'Respawn.'
 		
+	if global.points == 30:
+		get_tree().change_scene_to_file("res://win.tscn")
 func get_input():
 	var turn = 0
 	if Input.is_action_pressed("right"):
@@ -80,6 +83,7 @@ func get_input():
 		traction_fast = 0.1
 		traction_slow = 0.8
 		steering_angle = 40
+
 # This is Powerslide so you will drift  if you press down 'SHIFT'
 
 	
