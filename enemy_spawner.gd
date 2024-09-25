@@ -5,6 +5,7 @@ extends Node2D
 @onready var camera = $".."
 const ENEMY = preload("res://enemy.tscn")
 # These are some variables that are used to store the data.
+
 func spawn_enemy():
 	var enemy = ENEMY.instantiate()
 	var spawn_point = spawn_points.pick_random()
