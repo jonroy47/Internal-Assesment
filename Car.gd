@@ -48,7 +48,7 @@ func _physics_process(delta):
 		shooter._shoot()
 	# This is how when the player presses the attack button, (Left Click)
 	# a bullet will be spawned. This is using the _shoot function which is
-	# another cuntion linked somewhere else.
+	# another funtion linked somewhere else.
 
 	
 	if global.health <= 0:
@@ -141,8 +141,8 @@ func enemy_attack():
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(global.health)
-# Using the variable above, when the enemy is in the hitbox of the player, it is aloud to deal damage to t he player.
-
+# Using the variable a couple of functions above, when the enemy is in the hitbox
+#  of the player, it is aloud to deal damage to t he player.
 
 
 func _on_attack_cooldown_timeout():

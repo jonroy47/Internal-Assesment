@@ -12,4 +12,4 @@ func _on_body_entered(body):
 		collected()
 		queue_free()
 
-# This is just a lootbox that when entering the hitbox for it, it will disappeae.
+# This is just a lootbox that when entering the hitbox for it, it will disappear.

@@ -13,4 +13,5 @@ func _on_body_entered(body):
 		collected()
 		call_deferred('free')
 
-# These codes make it so that the loot_box will delete itself when it has come in contact with the player's hitbox.
+# These codes make it so that the loot_box will delete itself
+# when it has come in contact with the player's hitbox.
