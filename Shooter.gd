@@ -7,10 +7,14 @@ extends Node2D
 
 var projectiles_parent : Node
 
+# Some more variables.
+
+
 func _ready():
 	projectiles_parent = get_tree().get_first_node_in_group(group_names.projectiles_parent_group)
 	assert(projectiles_parent != null)
 	
+# This was just to see if it was working...
 
 func _shoot():
 	var projectile = fireable.scene.instantiate() as Projectile
@@ -19,3 +23,5 @@ func _shoot():
 	projectile.global_position = global_position
 	var launch_direction = default_direction.rotated(global_rotation)
 	projectile.launch(launch_direction)
+	
+# When the input for the bullet has been pressed, it will go towards the player mouse.
