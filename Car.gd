@@ -39,6 +39,8 @@ func _physics_process(delta):
 	velocity += acceleration * delta
 	move_and_slide()
 	enemy_attack()
+	# The physics process is constantly updating all these functions.
+	# These functions do all sorts of things like the enemy dealing damage and mostly things that enable the car to move.
 	if Input.is_action_pressed("attack") and is_ready:
 		Shoot_Timer = false
 		is_ready = false
@@ -105,6 +107,7 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reversed)
 	rotation = new_heading.angle()
 	
+	# This code is for making it so the car can turn. It also makes the car turn from the back which makes the turning semi-realistic.
 
 func player():
 	pass
@@ -116,19 +119,20 @@ func apply_friction():
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
-	
+	# This code calculates the acceleration for the car when you are moving.
 
 
 
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = true
-
+# This code makes it so when the enemy's hotbox enters the player's hitbox, it sets a variable to true. 
 
 
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = false
+# This is the opposite of the code above and makes it so when the enemy is outside the player's hitbox, the variable is set to false.
 
 
 func enemy_attack():
@@ -137,21 +141,24 @@ func enemy_attack():
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(global.health)
+# Using the variable above, when the enemy is in the hitbox of the player, it is aloud to deal damage to t he player.
 
 
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 	
-
+# There is a timeout so the enemy doesn't deal damage insanely quickly. I have used a timer and when the timer has finished, the enemy can deal damage again.
 
 func _on_projectile_timer_timeout() -> void:
 	is_ready = true
+	
+# This is also a timer that is set for the bullet firerate of the gun for the car.
 
 func test():
 	position = Vector2(0, 9)
 	
-
+# This was a test so when the car entered a hitbox, it would transfer to the co-ordinates, (0, 9)
 
 func _on_pickup_zone_area_entered(area):
 	if area.is_in_group("Pickup"):
@@ -159,3 +166,4 @@ func _on_pickup_zone_area_entered(area):
 			area.collect()
 			
 			
+# This is for when the EXP orb comes in contact with the player's hitbox, it goes towards it.
